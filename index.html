@@ -517,6 +517,72 @@ body{font-size:15px;}
 .cta-pkg-lbl input{display:none;}
 .cta-submit-btn{width:100%;margin-top:10px;font-size:13px;padding:10px 18px;}
 .nc-form .cta-row{margin-bottom:8px;}
+/* ===== MOBILE OPTIMIERUNGEN ===== */
+
+/* Kleine Tablets (max. 768px) */
+@media(max-width:768px) {
+  .compare-table-wrap{overflow-x:auto;}
+  .compare-table{min-width:520px;}
+  .age-btns{flex-direction:column;align-items:center;}
+  .age-btn{min-width:260px;}
+}
+
+/* Smartphones (max. 480px) */
+@media(max-width:480px) {
+  /* Navigation */
+  .nav-wrapper{padding:0 14px;}
+  .brand .logo-stack b{font-size:16px;}
+  .btn{font-size:13px;padding:11px 18px;}
+
+  /* Hero */
+  .hero-content{padding:90px 18px 36px;}
+  .hero-h1{font-size:32px!important;line-height:1.1;}
+  .hero-lead{font-size:15px!important;}
+  .hero-ctas{flex-direction:column;}
+  .hero-ctas .btn{width:100%;justify-content:center;}
+  .hero-trust{flex-direction:column;gap:10px;}
+
+  /* Values Strip */
+  .values-strip .inner{flex-direction:column!important;}
+  .vs-item+.vs-item::before{display:none;}
+  .vs-wave{margin:16px -14px 0;}
+
+  /* Pakete */
+  .packages-section{padding:32px 14px;}
+  .pkg-grid{padding:0;}
+  .age-toggle-wrap{padding:0 14px;}
+  .age-btn{min-width:100%;padding:14px;}
+  .age-btns{flex-direction:column;width:100%;}
+
+  /* Vergleichstabelle */
+  .compare-section{padding:32px 0;}
+  .compare-inner{padding:0;}
+  .compare-table-wrap{border-radius:0;border-left:none;border-right:none;}
+  .compare-table{font-size:12px;min-width:480px;}
+  .compare-table th,.compare-table td{padding:10px 10px;}
+  .compare-table td:first-child{padding-left:14px;font-size:12px;}
+
+  /* FAQ */
+  .faq-section{padding:32px 14px 40px;}
+  .faq-question{font-size:13.5px;padding:16px 18px;}
+  .faq-answer-inner{font-size:14px;}
+
+  /* Kontaktbox */
+  .contact-wrap{padding:40px 14px 36px;}
+  .contact-card{padding:20px 16px;}
+  .cc-actions{grid-template-columns:1fr!important;}
+  .cc-phone-big{font-size:15px;padding:12px 18px;}
+
+  /* Footer */
+  footer.end{padding:20px 16px;}
+  .end-inner{flex-direction:column;gap:10px;text-align:center;}
+  footer.end a{margin:0 10px;}
+
+  /* Sticky Buttons */
+  .sticky-actions{bottom:14px;right:12px;gap:8px;}
+  .sticky-btn{width:46px;height:46px;}
+  .sticky-btn svg{width:19px;height:19px;}
+}
 </style>
 </head>
 <body>
