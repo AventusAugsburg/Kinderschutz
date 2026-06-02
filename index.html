@@ -518,7 +518,36 @@ body{font-size:15px;}
 .cta-submit-btn{width:100%;margin-top:10px;font-size:13px;padding:10px 18px;}
 .nc-form .cta-row{margin-bottom:8px;}
 /* ===== MOBILE OPTIMIERUNGEN ===== */
+@media(max-width:640px){
+  .compare-section{padding:24px 0;}
+  .compare-inner{padding:0;}
+  .compare-table-wrap{border-radius:0;border-left:none;border-right:none;}
+  .compare-table{font-size:10px;width:100%;min-width:unset;table-layout:fixed;}
 
+  /* Spaltenbreiten */
+  .compare-table th:first-child,
+  .compare-table td:first-child{width:38%;padding-left:10px;text-align:left;}
+  .compare-table th:not(:first-child),
+  .compare-table td:not(:first-child){width:20.6%;text-align:center;}
+
+  /* Abstände & Schrift */
+  .compare-table th,.compare-table td{padding:9px 4px;word-break:break-word;}
+  .compare-table thead th{font-size:9.5px;letter-spacing:0;padding:10px 4px;}
+  .compare-table td:first-child{font-size:10.5px;font-weight:600;color:var(--navy-900);}
+  .compare-table td:first-child::before{display:none;}
+
+  /* Featured-Spalten-Badge */
+  .col-ft-badge{font-size:7px;padding:2px 6px;letter-spacing:0.04em;}
+  .col-ft-name{font-size:10.5px;}
+  .col-ft-inner{gap:3px;}
+
+  /* Häkchen */
+  .c-yes,.c-gold{width:18px;height:18px;}
+  .c-yes svg,.c-gold svg{width:9px;height:9px;}
+  .col-ft .c-yes{width:20px;height:20px;}
+  .c-star{font-size:8px;padding:2px 5px;}
+  .c-no{font-size:14px;}
+}
 /* Kleine Tablets (max. 768px) */
 @media(max-width:768px) {
   .compare-table-wrap{overflow-x:auto;}
