@@ -368,56 +368,69 @@ body{font-size:15px;}
 .compare-table tbody tr:last-child td{border-bottom:none;}
 
 /* === CONTACT FORM === */
-.contact-wrap{position:relative;z-index:1;max-width:640px;margin:0 auto;padding:36px 32px;text-align:center;}
-.contact-head{margin-bottom:18px;}
-.contact-card{background:#fff;border-radius:24px;padding:22px 24px 20px;box-shadow:0 20px 70px rgba(3,0,57,0.35),0 4px 20px rgba(0,0,0,0.18);text-align:left;}
-.contact-tabs{display:flex;gap:8px;margin-bottom:28px;background:rgba(3,0,57,0.06);border-radius:12px;padding:5px;}
-.ctab{flex:1;padding:10px 16px;border:none;border-radius:9px;background:transparent;font-family:var(--font-body);font-size:13.5px;font-weight:700;color:var(--text-muted);cursor:pointer;transition:all 0.2s;display:flex;align-items:center;justify-content:center;gap:7px;}
-.ctab svg{width:16px;height:16px;flex-shrink:0;}
-.ctab.active{background:#fff;color:var(--navy-800);box-shadow:0 2px 10px rgba(3,0,57,0.12);}
-.cf-row{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:16px;}
-.cf-field{display:flex;flex-direction:column;gap:6px;margin-bottom:16px;}
+/* === CONTACT FORM === */
+.contact-wrap{position:relative;z-index:1;max-width:680px;margin:0 auto;padding:64px 32px 56px;text-align:center;}
+.contact-head{margin-bottom:32px;}
+.contact-card{background:#fff;border-radius:28px;padding:32px;box-shadow:0 24px 80px rgba(3,0,57,0.38),0 4px 20px rgba(0,0,0,0.15);text-align:left;}
+
+/* Auswahl-Karten */
+.cc-actions{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:20px;}
+.cc-action{display:flex;flex-direction:column;align-items:center;gap:10px;padding:24px 18px 20px;border:2px solid rgba(3,0,57,0.10);border-radius:20px;background:#f8faff;cursor:pointer;font-family:var(--font-body);text-align:center;transition:all 0.22s cubic-bezier(0.34,1.56,0.64,1);}
+.cc-action:hover{transform:translateY(-4px);box-shadow:0 12px 32px rgba(3,0,57,0.13);}
+.cc-action-icon{width:52px;height:52px;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+.cc-action-icon svg{width:26px;height:26px;}
+.cc-action-wa .cc-action-icon{background:#edfff5;color:#25d366;}
+.cc-action-wa:hover{border-color:#25d366;background:#f0fff8;}
+.cc-action-angebot .cc-action-icon{background:rgba(34,0,200,0.08);color:var(--navy-800);}
+.cc-action-angebot:hover{border-color:var(--navy-800);background:#f0f2ff;}
+.cc-action-title{font-size:15px;font-weight:800;color:var(--navy-900);}
+.cc-action-sub{font-size:12px;font-weight:600;color:var(--text-muted);line-height:1.45;}
+.cc-action-arrow{display:inline-flex;align-items:center;gap:4px;font-size:12px;font-weight:700;color:var(--navy-800);margin-top:2px;transition:gap 0.18s;}
+.cc-action-arrow svg{width:13px;height:13px;}
+.cc-action:hover .cc-action-arrow{gap:7px;}
+
+/* Trennlinie & Direktlinks */
+.cc-sep{display:flex;align-items:center;gap:9px;font-size:11px;color:var(--text-light);font-weight:600;margin-bottom:12px;}
+.cc-sep::before,.cc-sep::after{content:'';flex:1;height:1px;background:rgba(3,0,57,0.08);}
+.cc-direct{display:flex;justify-content:center;gap:8px;flex-wrap:wrap;}
+.cc-dlink{display:inline-flex;align-items:center;gap:5px;font-size:12px;font-weight:600;color:var(--text-muted);text-decoration:none;padding:6px 14px;border-radius:999px;border:1.5px solid rgba(3,0,57,0.09);transition:all 0.17s;background:#fff;}
+.cc-dlink:hover{border-color:var(--navy-800);color:var(--navy-800);background:#f0f2ff;}
+.cc-dlink svg{width:13px;height:13px;}
+
+/* Formular */
+.cc-form{display:none;}
+.cc-form.cc-open{display:block;animation:ccIn 0.28s cubic-bezier(0.34,1.56,0.64,1);}
+@keyframes ccIn{from{opacity:0;transform:translateY(8px);}to{opacity:1;transform:translateY(0);}}
+.cc-back{display:inline-flex;align-items:center;gap:5px;font-size:12px;font-weight:700;color:var(--text-muted);border:none;background:none;cursor:pointer;padding:0 0 12px;font-family:var(--font-body);transition:color 0.15s;}
+.cc-back:hover{color:var(--navy-800);}
+.cc-form-title{font-size:16px;font-weight:800;color:var(--navy-900);margin-bottom:16px;display:flex;align-items:center;gap:9px;}
+.cc-form-title-icon{width:30px;height:30px;border-radius:9px;display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+
+/* Felder */
+.cf-row{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:12px;}
+.cf-field{display:flex;flex-direction:column;gap:5px;margin-bottom:12px;}
 .cf-field:last-child{margin-bottom:0;}
-.cf-field label{font-size:11.5px;font-weight:800;letter-spacing:0.07em;text-transform:uppercase;color:var(--navy-800);opacity:0.65;}
-.cf-field input,.cf-field textarea{border:1.5px solid rgba(3,0,57,0.13);border-radius:10px;padding:11px 14px;font-family:var(--font-body);font-size:14px;color:var(--navy-900);outline:none;transition:border-color 0.2s,box-shadow 0.2s;background:#fafbff;width:100%;box-sizing:border-box;}
-.cf-field input:focus,.cf-field textarea:focus{border-color:var(--navy-800);box-shadow:0 0 0 3px rgba(34,0,200,0.09);}
+.cf-field label{font-size:11px;font-weight:800;letter-spacing:0.07em;text-transform:uppercase;color:var(--navy-800);opacity:0.6;}
+.cf-field input,.cf-field textarea{border:1.5px solid rgba(3,0,57,0.12);border-radius:10px;padding:10px 13px;font-family:var(--font-body);font-size:14px;color:var(--navy-900);outline:none;transition:border-color 0.18s,box-shadow 0.18s;background:#fafbff;width:100%;box-sizing:border-box;}
+.cf-field input:focus,.cf-field textarea:focus{border-color:var(--navy-800);box-shadow:0 0 0 3px rgba(34,0,200,0.08);}
 .cf-field textarea{resize:none;line-height:1.6;}
-.cf-pkg-radios{display:flex;gap:8px;flex-wrap:wrap;padding-top:2px;}
-.pkg-radio{display:flex;align-items:center;gap:5px;padding:8px 14px;border:1.5px solid rgba(3,0,57,0.13);border-radius:999px;cursor:pointer;font-size:13px;font-weight:700;color:var(--navy-800);transition:all 0.18s;white-space:nowrap;background:#fafbff;user-select:none;}
+.cf-pkg-radios{display:flex;gap:7px;flex-wrap:wrap;padding-top:2px;}
+.pkg-radio{display:flex;align-items:center;gap:5px;padding:7px 13px;border:1.5px solid rgba(3,0,57,0.12);border-radius:999px;cursor:pointer;font-size:13px;font-weight:700;color:var(--navy-800);transition:all 0.18s;white-space:nowrap;background:#fafbff;user-select:none;}
 .pkg-radio input{display:none;}
 .pkg-radio.selected{background:var(--navy-800);color:#fff;border-color:var(--navy-800);}
 .pkg-radio-ft.selected{background:linear-gradient(135deg,#2200c8,#51bdff);border-color:transparent;}
-.cf-submit{width:100%;margin-top:8px;justify-content:center;font-size:15px;padding:14px 24px;display:block;text-align:center;cursor:pointer;}
-.cf-success{display:none;text-align:center;padding:20px 0 4px;}
-.cf-success-icon{width:52px;height:52px;border-radius:50%;background:linear-gradient(135deg,#2200c8,#51bdff);display:inline-flex;align-items:center;justify-content:center;margin-bottom:12px;box-shadow:0 4px 20px rgba(34,0,200,0.35);}
-.cf-success-icon svg{width:24px;height:24px;stroke:#fff;stroke-width:2.5;fill:none;}
-.cf-success p{color:var(--navy-800);font-weight:700;font-size:15px;line-height:1.5;}
-@media(max-width:540px){.cf-row{grid-template-columns:1fr;}.contact-card{padding:16px 14px 14px;}.contact-wrap{padding:24px 16px;}}
-.cf-channel{display:none;margin-bottom:20px;}
-.cf-channel-label{font-size:11.5px;font-weight:800;letter-spacing:0.07em;text-transform:uppercase;color:var(--navy-800);opacity:0.65;margin-bottom:8px;display:block;}
-.cf-channel-btns{display:flex;gap:8px;}
-.cch-btn{flex:1;padding:11px 14px;border:1.5px solid rgba(3,0,57,0.13);border-radius:10px;background:#fafbff;font-family:var(--font-body);font-size:13.5px;font-weight:700;color:var(--text-muted);cursor:pointer;transition:all 0.2s;display:flex;align-items:center;justify-content:center;gap:8px;}
-.cch-btn svg{width:17px;height:17px;flex-shrink:0;}
-.cch-btn-wa.active{border-color:#25d366;color:#128c5f;background:#f0fff7;box-shadow:0 0 0 3px rgba(37,211,102,0.12);}
-.cch-btn-mail.active{border-color:var(--navy-800);color:var(--navy-800);background:#eef0ff;box-shadow:0 0 0 3px rgba(34,0,200,0.09);}
+.cf-submit{width:100%;margin-top:10px;justify-content:center;font-size:15px;padding:13px 24px;display:block;text-align:center;cursor:pointer;}
 .btn-wa{background:#25d366;color:#fff;border:none;}
 .btn-wa:hover{background:#1ebe5d;}
-.cf-channel-prompt{text-align:center;font-size:15px;font-weight:700;color:var(--navy-800);margin-bottom:20px;opacity:0.65;}
-.cf-ch-cards{display:grid;grid-template-columns:1fr 1fr;gap:14px;}
-.cf-ch-card{display:flex;flex-direction:column;align-items:center;gap:9px;padding:26px 18px 22px;border:2px solid rgba(3,0,57,0.10);border-radius:18px;background:#fafbff;cursor:pointer;transition:all 0.22s;font-family:var(--font-body);text-align:center;width:100%;}
-.cf-ch-card:hover{transform:translateY(-4px);box-shadow:0 10px 32px rgba(3,0,57,0.13);}
-.cf-ch-icon{width:54px;height:54px;border-radius:50%;display:flex;align-items:center;justify-content:center;margin-bottom:2px;transition:transform 0.2s;}
-.cf-ch-card:hover .cf-ch-icon{transform:scale(1.1);}
-.cf-ch-icon svg{width:26px;height:26px;}
-.cf-ch-wa .cf-ch-icon{background:#edfff5;color:#25d366;}
-.cf-ch-wa:hover{border-color:#25d366;background:#f5fffb;}
-.cf-ch-mail .cf-ch-icon{background:#eef0ff;color:var(--navy-800);}
-.cf-ch-mail:hover{border-color:var(--navy-800);background:#f0f1ff;}
-.cf-ch-title{font-size:15px;font-weight:800;color:var(--navy-900);}
-.cf-ch-sub{font-size:12.5px;font-weight:600;color:var(--text-muted);line-height:1.4;}
-.cf-back-link{background:none;border:none;font-family:var(--font-body);font-size:13px;font-weight:700;color:var(--text-muted);cursor:pointer;padding:0 0 16px;display:flex;align-items:center;gap:4px;transition:color 0.15s;}
-.cf-back-link:hover{color:var(--navy-800);}
-@media(max-width:420px){.cf-ch-cards{grid-template-columns:1fr;}}
+
+/* Erfolg */
+.cf-success{display:none;text-align:center;padding:20px 0 8px;}
+.cf-success-icon{width:52px;height:52px;border-radius:50%;background:linear-gradient(135deg,#2200c8,#51bdff);display:inline-flex;align-items:center;justify-content:center;margin-bottom:12px;box-shadow:0 4px 20px rgba(34,0,200,0.35);}
+.cf-success-icon svg{width:24px;height:24px;stroke:#fff;stroke-width:2.5;fill:none;}
+.cf-success h4{font-size:16px;font-weight:800;color:var(--navy-900);margin-bottom:6px;}
+.cf-success p{color:var(--text-muted);font-weight:600;font-size:14px;line-height:1.5;}
+
+@media(max-width:540px){.cf-row{grid-template-columns:1fr;}.contact-card{padding:24px 18px 20px;}.contact-wrap{padding:48px 20px 40px;}.cc-actions{grid-template-columns:1fr;}}
 
 /* === VALUES ICON LEISTE === */
 .values-strip{padding:28px 32px 0 !important;}
@@ -794,77 +807,81 @@ body{font-size:15px;}
 </section>
 
 <section id="kontakt" class="foot-cta">
-<div class="nc-wrap reveal">
+  <div class="foot-cta-bg"></div>
+  <div class="contact-wrap reveal">
 
-  <div class="nc-head">
-    <div class="nc-eyebrow">Kontakt</div>
-    <h2 class="nc-h2">Haben wir dein Interesse geweckt?</h2>
-    <p class="nc-sub">Wir melden uns innerhalb von 24&nbsp;Stunden &mdash; pers&ouml;nlich und unkompliziert.</p>
-  </div>
+    <div class="contact-head">
+      <div class="section-label" style="color:rgba(255,255,255,0.65);letter-spacing:0.14em;margin-bottom:12px">Kontakt</div>
+      <h2 class="section-h2" style="color:#fff;margin-bottom:12px">Haben wir dein Interesse geweckt?</h2>
+      <p style="color:rgba(255,255,255,0.75);font-size:16px;line-height:1.65;max-width:44ch;margin:0 auto">Wir melden uns innerhalb von 24&nbsp;Stunden &mdash; pers&ouml;nlich und ohne Verkaufsdruck.</p>
+    </div>
 
-  <div id="nc-pick">
-    <div class="nc-cards">
-      <button class="nc-card nc-wa" onclick="ncSel('frage')" type="button">
-        <div class="nc-ico"><svg viewBox="0 0 24 24" fill="#25d366"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347zm-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884zm8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg></div>
-        <div class="nc-title">Frage stellen</div>
-        <div class="nc-desc">Per WhatsApp oder E-Mail &mdash; wir antworten schnell.</div>
-        <div class="nc-arrow">Jetzt schreiben <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 8h10M9 4l4 4-4 4"/></svg></div>
-      </button>
-      <button class="nc-card nc-aq" onclick="ncSel('angebot')" type="button">
-        <div class="nc-ico"><svg viewBox="0 0 24 24" fill="none" stroke="rgba(34,0,200,0.75)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><path d="M9 15h6M9 11h6"/></svg></div>
-        <div class="nc-title">Angebot anfordern</div>
-        <div class="nc-desc">Unverbindlich &amp; pers&ouml;nlich &mdash; wir rechnen gerne f&uuml;r dich.</div>
-        <div class="nc-arrow">Angebot anfragen <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 8h10M9 4l4 4-4 4"/></svg></div>
-      </button>
-    </div>
-    <div class="nc-sep">oder direkt</div>
-    <div class="nc-direct">
-      <a href="tel:+4982122802280" class="nc-dl"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81 19.79 19.79 0 010 1.18 2 2 0 012 0h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16z"/></svg>0821 228 022 80</a>
-      <a href="mailto:service.augsburg@aventusgruppe.de" class="nc-dl"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2z"/><polyline points="2,6 12,13 22,6"/></svg>E-Mail schreiben</a>
-    </div>
-  </div>
+    <div class="contact-card">
 
-  <div class="nc-form" id="nc-form">
-    <button class="nc-back" onclick="ncBack()" type="button">&#8592; Zur&uuml;ck</button>
-    <h3 class="nc-ftitle" id="nc-ftitle">Deine Frage</h3>
-    <div class="nc-chs" id="nc-ch-row">
-      <button class="cta-ch-btn cta-ch-wa cta-ch-on" onclick="ctaCh('wa',this)" type="button">
-        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347zm-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884zm8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-        WhatsApp
-      </button>
-      <button class="cta-ch-btn" onclick="ctaCh('mail',this)" type="button">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2z"/><polyline points="2,6 12,13 22,6"/></svg>
-        E-Mail
-      </button>
-    </div>
-    <form id="contactForm" onsubmit="submitContactForm(event)" novalidate>
-      <div class="cta-row">
-        <div class="cta-f"><label for="cf-name">Dein Name</label><input type="text" id="cf-name" placeholder="Max Mustermann" autocomplete="name"></div>
-        <div class="cta-f" id="cf-email-row"><label for="cf-email">E-Mail</label><input type="email" id="cf-email" placeholder="max@beispiel.de" autocomplete="email"></div>
-      </div>
-      <div class="cta-row">
-        <div class="cta-f"><label for="cf-childname">Name des Kindes</label><input type="text" id="cf-childname" placeholder="z.B. Emma"></div>
-        <div class="cta-f"><label for="cf-age">Alter</label><input type="number" id="cf-age" placeholder="z.B. 4" min="0" max="17"></div>
-      </div>
-      <div class="cta-f"><label>Gew&auml;hltes Paket</label>
-        <div class="cta-pkg">
-          <label class="cta-pkg-lbl"><input type="radio" name="cf-pkg" value="Erdm&#228;nnchen"> Erdm&auml;nnchen</label>
-          <label class="cta-pkg-lbl"><input type="radio" name="cf-pkg" value="Adler"> Adler</label>
-          <label class="cta-pkg-lbl"><input type="radio" name="cf-pkg" value="Elefant"> Elefant &#9733;</label>
+      <!-- Auswahl -->
+      <div id="cc-pick">
+        <div class="cc-actions">
+          <button class="cc-action cc-action-wa" onclick="ccOpen('wa')" type="button">
+            <div class="cc-action-icon">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347zm-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884zm8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+            </div>
+            <div class="cc-action-title">Frage per WhatsApp</div>
+            <div class="cc-action-sub">Schnell &amp; unkompliziert &mdash;<br>wir antworten prompt</div>
+            <div class="cc-action-arrow">Jetzt schreiben <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 8h10M9 4l4 4-4 4"/></svg></div>
+          </button>
+          <button class="cc-action cc-action-angebot" onclick="ccOpen('angebot')" type="button">
+            <div class="cc-action-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><path d="M9 15h6M9 11h6"/></svg>
+            </div>
+            <div class="cc-action-title">Angebot anfordern</div>
+            <div class="cc-action-sub">Unverbindlich &amp; pers&ouml;nlich &mdash;<br>wir rechnen gerne f&uuml;r dich</div>
+            <div class="cc-action-arrow">Angebot anfragen <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 8h10M9 4l4 4-4 4"/></svg></div>
+          </button>
+        </div>
+        <div class="cc-sep">oder direkt</div>
+        <div class="cc-direct">
+          <a href="tel:+4982122802280" class="cc-dlink"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81 19.79 19.79 0 010 1.18 2 2 0 012 0h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16z"/></svg>0821 228 022 80</a>
+          <a href="mailto:service.augsburg@aventusgruppe.de" class="cc-dlink"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2z"/><polyline points="2,6 12,13 22,6"/></svg>E-Mail schreiben</a>
         </div>
       </div>
-      <div class="cta-f" id="cf-frage-row"><label for="cf-frage">Deine Frage</label><textarea id="cf-frage" placeholder="Was m&ouml;chtest du wissen&#8230;?"></textarea></div>
-      <button type="submit" class="btn btn-gold btn-lg cta-submit-btn cf-submit">Jetzt senden &rarr;</button>
-    </form>
-  </div>
 
-  <div class="nc-ok" id="cf-success">
-    <div class="nc-ok-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="4,12 9,17 20,7"/></svg></div>
-    <h4>Nachricht gesendet!</h4>
-    <p>Wir melden uns so schnell wie m&ouml;glich bei dir.</p>
-  </div>
+      <!-- Formular -->
+      <div class="cc-form" id="cc-form">
+        <button class="cc-back" onclick="ccBack()" type="button">&#8592; Zur&uuml;ck</button>
+        <div class="cc-form-title">
+          <div class="cc-form-title-icon" id="cc-form-icon"></div>
+          <span id="cc-form-title-text">Frage per WhatsApp</span>
+        </div>
+        <form id="contactForm" onsubmit="ccSubmit(event)" novalidate>
+          <div class="cf-row">
+            <div class="cf-field"><label for="cf-name">Dein Name</label><input type="text" id="cf-name" placeholder="Max Mustermann" autocomplete="name"></div>
+            <div class="cf-field" id="cf-email-row"><label for="cf-email">Deine E-Mail</label><input type="email" id="cf-email" placeholder="max@beispiel.de" autocomplete="email"></div>
+          </div>
+          <div class="cf-row">
+            <div class="cf-field"><label for="cf-childname">Name des Kindes</label><input type="text" id="cf-childname" placeholder="z.B. Emma"></div>
+            <div class="cf-field"><label for="cf-age">Alter</label><input type="number" id="cf-age" placeholder="z.B. 4" min="0" max="17"></div>
+          </div>
+          <div class="cf-field"><label>Gew&auml;hltes Paket</label>
+            <div class="cf-pkg-radios">
+              <label class="pkg-radio"><input type="radio" name="cf-pkg" value="Erdm&#228;nnchen"> Erdm&auml;nnchen</label>
+              <label class="pkg-radio"><input type="radio" name="cf-pkg" value="Adler"> Adler</label>
+              <label class="pkg-radio pkg-radio-ft"><input type="radio" name="cf-pkg" value="Elefant"> Elefant &#9733;</label>
+            </div>
+          </div>
+          <div class="cf-field" id="cf-frage-row"><label for="cf-frage">Deine Frage</label><textarea id="cf-frage" rows="3" placeholder="Was m&ouml;chtest du wissen&#8230;?"></textarea></div>
+          <button type="submit" class="btn btn-gold btn-lg cf-submit" id="cc-submit-btn">Senden &rarr;</button>
+        </form>
+        <div class="cf-success" id="cf-success">
+          <div class="cf-success-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="4,12 9,17 20,7"/></svg></div>
+          <h4>Nachricht gesendet!</h4>
+          <p id="cf-success-msg">Wir melden uns so schnell wie m&ouml;glich bei dir.</p>
+        </div>
+      </div>
 
-</div>
+    </div>
+
+    <p class="foot-promise" style="color:rgba(255,255,255,0.52);margin-top:28px">Kein Spam &middot; Kein Verkaufsdruck &middot; Nur ehrliche Beratung</p>
+  </div>
 </section>
 
 </div>
@@ -1189,8 +1206,8 @@ document.addEventListener("DOMContentLoaded",function(){
 </script>
 
 <script>
-/* Contact form */
-var _contactChannel = 'mail';
+/* === Kontaktformular === */
+var _ccMode = '';
 
 document.addEventListener('DOMContentLoaded', function() {
   document.querySelectorAll('input[name="cf-pkg"]').forEach(function(radio) {
@@ -1199,70 +1216,54 @@ document.addEventListener('DOMContentLoaded', function() {
       radio.closest('.pkg-radio').classList.add('selected');
     });
   });
-  document.getElementById('cf-step-channel').style.display = '';
-  document.getElementById('contactForm').style.display = 'none';
-  document.getElementById('cf-success').style.display = 'none';
 });
 
-function switchContactTab(tab) {
-  document.querySelectorAll('.ctab').forEach(function(b) {
-    b.classList.toggle('active', b.getAttribute('data-tab') === tab);
-  });
-  var step = document.getElementById('cf-step-channel');
-  var form = document.getElementById('contactForm');
+function ccOpen(mode) {
+  _ccMode = mode;
+  document.getElementById('cc-pick').style.display = 'none';
+  var ccForm = document.getElementById('cc-form');
+  ccForm.classList.add('cc-open');
+  var titleText  = document.getElementById('cc-form-title-text');
+  var titleIcon  = document.getElementById('cc-form-icon');
+  var submitBtn  = document.getElementById('cc-submit-btn');
+  var frageRow   = document.getElementById('cf-frage-row');
+  var emailRow   = document.getElementById('cf-email-row');
   document.getElementById('cf-success').style.display = 'none';
-  form.style.opacity = '';
-  form.style.pointerEvents = '';
-  if (tab === 'frage') {
-    step.style.display = '';
-    form.style.display = 'none';
+  var formEl = document.getElementById('contactForm');
+  formEl.style.opacity = '';
+  formEl.style.pointerEvents = '';
+  formEl.style.display = '';
+
+  if (mode === 'wa') {
+    titleText.textContent = 'Frage per WhatsApp';
+    titleIcon.style.cssText = 'background:#edfff5;color:#25d366;width:30px;height:30px;border-radius:9px;display:flex;align-items:center;justify-content:center;flex-shrink:0;';
+    titleIcon.innerHTML = '<svg viewBox="0 0 24 24" fill="currentColor" style="width:16px;height:16px"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347zm-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884zm8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>';
+    frageRow.style.display = '';
+    emailRow.style.display = 'none';
+    submitBtn.className = 'btn btn-wa btn-lg cf-submit';
+    submitBtn.textContent = 'Per WhatsApp senden →';
   } else {
-    _contactChannel = 'mail';
-    step.style.display = 'none';
-    form.style.display = '';
-    document.getElementById('cf-back-btn').style.display = 'none';
-    document.getElementById('cf-frage-row').style.display = 'none';
-    document.getElementById('cf-email-row').style.display = '';
-    updateSubmitBtn();
+    titleText.textContent = 'Angebot anfordern';
+    titleIcon.style.cssText = 'background:rgba(34,0,200,0.08);color:#2200c8;width:30px;height:30px;border-radius:9px;display:flex;align-items:center;justify-content:center;flex-shrink:0;';
+    titleIcon.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:15px;height:15px"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><path d="M9 15h6M9 11h6"/></svg>';
+    frageRow.style.display = 'none';
+    emailRow.style.display = '';
+    submitBtn.className = 'btn btn-gold btn-lg cf-submit';
+    submitBtn.textContent = 'Angebot anfordern →';
   }
 }
 
-function selectChannel(ch) {
-  _contactChannel = ch;
-  document.getElementById('cf-step-channel').style.display = 'none';
-  var form = document.getElementById('contactForm');
-  form.style.display = '';
-  form.style.opacity = '';
-  form.style.pointerEvents = '';
-  document.getElementById('cf-back-btn').style.display = '';
-  document.getElementById('cf-frage-row').style.display = '';
-  document.getElementById('cf-email-row').style.display = ch === 'wa' ? 'none' : '';
-  updateSubmitBtn();
+function ccBack() {
+  document.getElementById('cc-pick').style.display = '';
+  document.getElementById('cc-form').classList.remove('cc-open');
+  document.getElementById('cf-success').style.display = 'none';
+  var formEl = document.getElementById('contactForm');
+  formEl.style.opacity = '';
+  formEl.style.pointerEvents = '';
+  formEl.style.display = '';
 }
 
-function goBackToChannel() {
-  document.getElementById('cf-step-channel').style.display = '';
-  document.getElementById('contactForm').style.display = 'none';
-}
-
-function updateSubmitBtn() {
-  var btn = document.querySelector('.cf-submit');
-  if (!btn) return;
-  var ctabEl = document.querySelector('.ctab[data-tab="angebot"]');
-  var isAngebot = ctabEl ? ctabEl.classList.contains('active') : (typeof _ncIsAngebot !== 'undefined' ? _ncIsAngebot : false);
-  if (_contactChannel === 'wa' && !isAngebot) {
-    btn.className = 'btn btn-wa btn-lg cf-submit';
-    btn.textContent = 'Per WhatsApp senden →';
-  } else if (isAngebot) {
-    btn.className = 'btn btn-gold btn-lg cf-submit';
-    btn.textContent = 'Angebot anfordern →';
-  } else {
-    btn.className = 'btn btn-gold btn-lg cf-submit';
-    btn.textContent = 'Per E-Mail senden →';
-  }
-}
-
-function submitContactForm(e) {
+function ccSubmit(e) {
   e.preventDefault();
   var name      = (document.getElementById('cf-name').value      || '').trim();
   var childname = (document.getElementById('cf-childname').value || '').trim();
@@ -1270,51 +1271,37 @@ function submitContactForm(e) {
   var age       = (document.getElementById('cf-age').value       || '').trim();
   var pkgEl     = document.querySelector('input[name="cf-pkg"]:checked');
   var pkg       = pkgEl ? pkgEl.value : '(nicht angegeben)';
-  var frageEl   = document.getElementById('cf-frage');
-  var frage     = frageEl ? frageEl.value.trim() : '';
-  var ctabEl = document.querySelector('.ctab[data-tab="angebot"]');
-  var isAngebot = ctabEl ? ctabEl.classList.contains('active') : (typeof _ncIsAngebot !== 'undefined' ? _ncIsAngebot : false);
+  var frage     = (_ccMode === 'wa') ? (document.getElementById('cf-frage').value || '').trim() : '';
   var successMsg = '';
 
-  if (_contactChannel === 'wa' && !isAngebot) {
-    var text = 'Hallo, ich interessiere mich für das Kinderschutzkonzept SafeSteps4Kids.\n\n';
-    text += 'Name: ' + (name || '(nicht angegeben)') + '\n';
-    text += 'Name meines Kindes: ' + (childname || '(nicht angegeben)') + '\n';
-    text += 'Alter meines Kindes: ' + (age ? age + ' Jahre' : 'nicht angegeben') + '\n';
+  if (_ccMode === 'wa') {
+    var text = 'Hallo, ich interessiere mich für SafeSteps4Kids.\n\n';
+    text += 'Name: ' + (name || 'nicht angegeben') + '\n';
+    text += 'Kind: ' + (childname || 'nicht angegeben') + (age ? ', ' + age + ' Jahre' : '') + '\n';
     text += 'Paket: Team ' + pkg + '\n';
-    if (frage) text += '\nFrage:\n' + frage + '\n';
+    if (frage) text += '\nFrage:\n' + frage;
     window.open('https://wa.me/4915201481753?text=' + encodeURIComponent(text), '_blank');
-    successMsg = 'WhatsApp wird geöffnet —<br>schreib uns einfach deine Nachricht!';
+    successMsg = 'WhatsApp wird geöffnet — schreib uns einfach!';
   } else {
-    var subject = isAngebot
-      ? 'Angebotsanfrage SafeSteps4Kids – Team ' + pkg
-      : 'Frage zu SafeSteps4Kids – Team ' + pkg;
+    var subject = 'Angebotsanfrage SafeSteps4Kids – Team ' + pkg;
     var body = 'Hallo,\n\n';
-    body += 'Name: ' + (name || '(nicht angegeben)') + '\n';
+    body += 'Name: ' + (name || 'nicht angegeben') + '\n';
     if (email) body += 'E-Mail: ' + email + '\n';
-    body += 'Name des Kindes: ' + (childname || '(nicht angegeben)') + '\n';
-    body += 'Alter des Kindes: ' + (age ? age + ' Jahre' : 'nicht angegeben') + '\n';
-    body += 'Paket: Team ' + pkg + '\n';
-    if (!isAngebot && frage) body += '\nFrage:\n' + frage + '\n';
-    if (isAngebot) body += '\nBitte erstellt mir ein unverbindliches Angebot für das gewählte Paket.\n';
-    body += '\nViele Grüße\n' + (name || 'Interessent');
-    window.location.href = 'mailto:service.augsburg@aventusgruppe.de?subject='
-      + encodeURIComponent(subject) + '&body=' + encodeURIComponent(body);
-    successMsg = 'E-Mail wird geöffnet —<br>bitte im E-Mail-Programm bestätigen.';
+    body += 'Kind: ' + (childname || 'nicht angegeben') + (age ? ', ' + age + ' Jahre' : '') + '\n';
+    body += 'Paket: Team ' + pkg + '\n\n';
+    body += 'Bitte erstellt mir ein unverbindliches Angebot.\n\n';
+    body += 'Viele Grüße\n' + (name || 'Interessent');
+    window.location.href = 'mailto:service.augsburg@aventusgruppe.de?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(body);
+    successMsg = 'E-Mail wird geöffnet — bitte im E-Mail-Programm bestätigen.';
   }
 
-  var form = document.getElementById('contactForm');
+  var formEl  = document.getElementById('contactForm');
   var success = document.getElementById('cf-success');
-  success.querySelector('p').innerHTML = successMsg;
-  form.style.opacity = '0.3';
-  form.style.pointerEvents = 'none';
+  document.getElementById('cf-success-msg').textContent = successMsg;
+  formEl.style.opacity = '0.25';
+  formEl.style.pointerEvents = 'none';
   success.style.display = 'block';
-  setTimeout(function() {
-    form.style.opacity = '';
-    form.style.pointerEvents = '';
-    success.style.display = 'none';
-  }, 6000);
+  setTimeout(function() { ccBack(); }, 6000);
 }
 </script>
-</body>
 </html>
